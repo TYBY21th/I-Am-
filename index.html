@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYBY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .logo {
+            height: 40px; /* Adjust as needed */
+        }
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        nav {
+            display: none;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+        }
+        nav a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #000;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px);
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .typing-text::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 250px;
+        }
+        .button {
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="TYBY LOGO.PNG" alt="TYBY Logo" class="logo">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="https://tybyin.wordpress.com">HOME</a>
+            <a href="https://tybyin.wordpress.com/services/">SERVICES</a>
+            <a href="https://tybyin.wordpress.com/contact/">CONTACT US</a>
+        </nav>
+    </header>
+    
+    <div class="main-content">
+        <h1 class="typing-text">I Am </h1>
+        <div class="button-container">
+            <button class="button" onclick="window.location.href='https://tyby21th.github.io/Customer/'">CUSTOMER</button>
+            <button class="button">SHOPKEEPER</button>
+            <button class="button">DELIVERY BOY</button>
+        </div>
+    </div>
+
+    <script>
+        const text = "I Am ?";
+        const typingText = document.querySelector('.typing-text');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.innerHTML = text.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, 200);
+            }
+        }
+
+        window.onload = typeWriter;
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
